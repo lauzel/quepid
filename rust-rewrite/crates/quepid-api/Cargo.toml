@@ -1,0 +1,69 @@
+[package]
+name = "quepid-api"
+version = "0.1.0"
+edition = "2021"
+authors = ["Quepid Team"]
+description = "Quepid presentation layer - HTTP API and WebSocket endpoints"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["quepid", "api", "http", "websocket"]
+categories = ["web-programming"]
+
+[dependencies]
+# Core domain
+quepid-core = { path = "../quepid-core" }
+
+# Infrastructure
+quepid-infra = { path = "../quepid-infra" }
+
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+config = { workspace = true }
+
+# Web framework
+axum = { workspace = true }
+axum-extra = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+
+# Authentication
+jsonwebtoken = { workspace = true }
+bcrypt = { workspace = true }
+argon2 = { workspace = true }
+
+# OpenAPI
+utoipa = { workspace = true }
+utoipa-swagger-ui = { workspace = true }
+
+# Validation
+validator = { workspace = true }
+
+# Metrics
+metrics = { workspace = true }
+metrics-exporter-prometheus = { workspace = true }
+
+# File upload
+axum-multipart = "0.3"
+
+[dev-dependencies]
+mockall = { workspace = true }
+testcontainers = { workspace = true }
+
+[features]
+default = []
+swagger-ui = ["utoipa-swagger-ui/axum"]
+metrics = ["metrics-exporter-prometheus"]
+testing = []
+
+[lints.clippy]
+warnings-as-errors = true
+
+[lints.rust]
+warnings-as-errors = true

@@ -1,0 +1,84 @@
+# Quepid Rust Configuration
+#
+# This is the default configuration file for Quepid Rust.
+# All settings can be overridden via environment variables prefixed with QUEPID_
+
+[server]
+host = "0.0.0.0"
+port = 3000
+public_path = "/app/public"
+cors_enabled = true
+cors_origins = ["*"]
+
+[database]
+# Supported: mysql, postgres, sqlite
+backend = "mysql"
+connection_string = "mysql://root:password@mysql/quepid_development"
+max_connections = 10
+connect_timeout = 30
+query_timeout = 30
+
+[auth]
+jwt_secret = "change-me-in-production"
+jwt_expiration_hours = 24
+oauth_enabled = false
+
+# OAuth2 providers can be added here
+# [[auth.oauth_providers]]
+# name = "google"
+# client_id = "your-client-id"
+# client_secret = "your-client-secret"
+# auth_url = "https://accounts.google.com/o/oauth2/auth"
+# token_url = "https://oauth2.googleapis.com/token"
+# user_info_url = "https://www.googleapis.com/oauth2/v3/userinfo"
+# callback_url = "http://localhost:3000/auth/google/callback"
+
+[auth.oidc]
+enabled = false
+# issuer = "http://localhost:9080/realms/quepid"
+# client_id = "quepid"
+# client_secret = "your-client-secret"
+# discovery_endpoint = "/.well-known/openid-configuration"
+# callback_url = "http://localhost:3000/auth/oidc/callback"
+
+[external]
+
+# Search engine configurations
+# [[external.search_engines]]
+# name = "solr"
+# engine_type = "solr"
+# base_url = "http://localhost:8983/solr"
+
+# [[external.search_engines]]
+# name = "opensearch"
+# engine_type = "opensearch"
+# base_url = "http://localhost:9200"
+
+# LLM judge configurations
+# [[external.llm_judges]]
+# name = "openai"
+# provider = "openai"
+# api_key = "your-api-key"
+# model = "gpt-4"
+
+# [[external.llm_judges]]
+# name = "anthropic"
+# provider = "anthropic"
+# api_key = "your-api-key"
+# model = "claude-3-sonnet"
+
+[external.email]
+enabled = false
+smtp_host = "localhost"
+smtp_port = 587
+smtp_username = ""
+smtp_password = ""
+from_address = "noreply@quepid.com"
+use_tls = true
+
+[features]
+registration_enabled = true
+ai_judging_enabled = true
+websocket_enabled = true
+jobs_enabled = true
+analytics_enabled = true

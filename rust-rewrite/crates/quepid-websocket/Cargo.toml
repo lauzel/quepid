@@ -1,0 +1,48 @@
+[package]
+name = "quepid-websocket"
+version = "0.1.0"
+edition = "2021"
+authors = ["Quepid Team"]
+description = "Quepid WebSocket server for real-time updates"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["quepid", "websocket", "realtime", "updates"]
+categories = ["web-programming"]
+
+[dependencies]
+# Core domain
+quepid-core = { path = "../quepid-core" }
+
+# Infrastructure
+quepid-infra = { path = "../quepid-infra" }
+
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+
+# WebSocket
+tokio-tungstenite = { workspace = true }
+axum = { workspace = true }
+tower = { workspace = true }
+
+# Authentication
+jsonwebtoken = { workspace = true }
+
+[dev-dependencies]
+mockall = { workspace = true }
+
+[features]
+default = []
+testing = []
+
+[lints.clippy]
+warnings-as-errors = true
+
+[lints.rust]
+warnings-as-errors = true

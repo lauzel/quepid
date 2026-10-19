@@ -1,0 +1,58 @@
+[package]
+name = "quepid-infra"
+version = "0.1.0"
+edition = "2021"
+authors = ["Quepid Team"]
+description = "Quepid infrastructure layer - database, external services, background jobs"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["quepid", "database", "services", "infrastructure"]
+categories = ["web-programming"]
+
+[dependencies]
+# Core domain
+quepid-core = { path = "../quepid-core" }
+
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+
+# Database
+sea-orm = { workspace = true }
+sea-orm-migration = { workspace = true }
+
+# HTTP
+reqwest = { workspace = true }
+
+# Redis
+redis = { workspace = true }
+
+# WebSocket
+tokio-tungstenite = { workspace = true }
+
+# External services
+url = "2.0"
+
+[dev-dependencies]
+mockall = { workspace = true }
+testcontainers = { workspace = true }
+
+[features]
+default = []
+mysql = ["sea-orm/sqlx-mysql"]
+postgres = ["sea-orm/sqlx-postgres"]
+sqlite = ["sea-orm/sqlx-sqlite"]
+all-databases = ["mysql", "postgres", "sqlite"]
+testing = []
+
+[lints.clippy]
+warnings-as-errors = true
+
+[lints.rust]
+warnings-as-errors = true

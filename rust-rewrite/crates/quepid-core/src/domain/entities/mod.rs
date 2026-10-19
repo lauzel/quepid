@@ -1,0 +1,61 @@
+//! Domain Entities
+//!
+//! Entities are objects with a distinct identity that persist over time.
+//! They are defined by their identity, not by their attributes.
+
+pub mod user;
+pub mod team;
+pub mod case;
+pub mod query;
+pub mod rating;
+pub mod score;
+pub mod scorer;
+pub mod try_;
+pub mod search_endpoint;
+pub mod snapshot;
+pub mod book;
+pub mod query_doc_pair;
+pub mod judgement;
+pub mod annotation;
+pub mod api_key;
+pub mod announcement;
+pub mod ai_judge;
+pub mod books_ai_judge;
+pub mod llm_provider;
+pub mod mapper_wizard_state;
+pub mod curator_variable;
+pub mod case_metadatum;
+pub mod book_metadatum;
+pub mod judge_scale;
+pub mod selection_strategy;
+pub mod snapshot_query;
+pub mod snapshot_doc;
+pub mod snapshot_doc_pair;
+
+pub use user::*;
+pub use team::*;
+pub use case::*;
+pub use query::*;
+pub use rating::*;
+pub use score::*;
+pub use scorer::*;
+pub use try_::*;
+pub use search_endpoint::*;
+pub use snapshot::*;
+pub use book::*;
+pub use query_doc_pair::*;
+pub use judgement::*;
+pub use annotation::*;
+pub use api_key::*;
+pub use announcement::*;
+pub use ai_judge::*;
+pub use books_ai_judge::*;
+pub use llm_provider::*;
+pub use mapper_wizard_state::*;
+pub use curator_variable::*;
+pub use case_metadatum::*;
+pub use book_metadatum::*;
+pub use judge_scale::*;
+pub use selection_strategy::*;
+pub use snapshot_query::*;
+pub use snapshot_doc::*;

@@ -1,0 +1,50 @@
+# Rust
+/target
+*.rs.bk
+
+# Cargo
+Cargo.lock
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Docker
+.docker/
+
+# Test outputs
+/test-results
+coverage/
+
+# Benchmark results
+criterion-results/
+.bench/
+
+# Build artifacts
+*.exe
+*.dll
+*.so
+
+# Temporary files
+tmp/
+temp/
