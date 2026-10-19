@@ -1,0 +1,39 @@
+[package]
+name = "quepid-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Quepid Team"]
+description = "Quepid domain layer - core business logic and entities"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["quepid", "search", "testing", "domain"]
+categories = ["web-programming"]
+
+[dependencies]
+# Workspace dependencies
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+validator = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+
+# Domain-specific
+strum = { version = "0.26", features = ["derive"] }
+
+[dev-dependencies]
+mockall = { workspace = true }
+proptest = { workspace = true }
+test-case = "3.0"
+
+[features]
+default = []
+testing = []
+
+[lints.clippy]
+warnings-as-errors = true
+
+[lints.rust]
+warnings-as-errors = true

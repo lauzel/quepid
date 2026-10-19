@@ -1,0 +1,68 @@
+[workspace]
+members = [
+    "crates/quepid-core",
+    "crates/quepid-infra",
+    "crates/quepid-api",
+    "crates/quepid-workers",
+    "crates/quepid-websocket",
+    "crates/quepid-cli",
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Core dependencies
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+anyhow = "1.0"
+validator = { version = "2.0", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+config = "0.13"
+
+# Database
+sea-orm = { version = "1.0", features = ["sqlx-mysql", "sqlx-postgres", "sqlx-sqlite", "runtime-tokio"] }
+sea-orm-migration = "1.0"
+
+# HTTP
+axum = "0.7"
+axum-extra = "0.9"
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "rate-limit", "trace", "fs"] }
+reqwest = { version = "0.12", features = ["json", "multipart"] }
+
+# WebSocket
+tokio-tungstenite = "0.20"
+
+# Authentication
+jsonwebtoken = "9.0"
+bcrypt = "0.15"
+argon2 = { version = "0.5", features = ["std"] }
+
+# Redis
+redis = { version = "0.25", features = ["tokio-comp", "streams"] }
+
+# OpenAPI
+utoipa = { version = "4.0", features = ["axum_extras", "chrono", "uuid"] }
+utoipa-swagger-ui = { version = "4.0", features = ["axum"] }
+
+# Testing
+mockall = "0.12"
+proptest = "0.11"
+testcontainers = "0.15"
+
+# Metrics
+metrics = "0.22"
+metrics-exporter-prometheus = "0.12"
+
+# CLI
+clap = { version = "4.0", features = ["derive"] }
+
+[workspace.lints.clippy]
+warnings-as-errors = true
+
+[workspace.lints.rust]
+warnings-as-errors = true

@@ -1,0 +1,50 @@
+[package]
+name = "quepid-cli"
+version = "0.1.0"
+edition = "2021"
+authors = ["Quepid Team"]
+description = "Quepid command-line utilities"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["quepid", "cli", "command-line"]
+categories = ["command-line-utilities"]
+
+[[bin]]
+name = "quepid"
+path = "src/main.rs"
+
+[dependencies]
+# Core domain
+quepid-core = { path = "../quepid-core" }
+
+# Infrastructure
+quepid-infra = { path = "../quepid-infra" }
+
+# Workspace dependencies
+tokio = { workspace = true, features = ["rt-multi-thread"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+config = { workspace = true }
+
+# CLI
+clap = { workspace = true }
+
+# Database
+sea-orm = { workspace = true }
+sea-orm-migration = { workspace = true }
+
+[dev-dependencies]
+
+[features]
+default = []
+
+[lints.clippy]
+warnings-as-errors = true
+
+[lints.rust]
+warnings-as-errors = true
